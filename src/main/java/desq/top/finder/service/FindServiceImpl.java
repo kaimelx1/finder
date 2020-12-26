@@ -14,16 +14,17 @@ public class FindServiceImpl implements FindService {
     public FindServiceImpl(FileRepository repository) {
         this.repository = repository;
     }
-
+    
+    /**
+     * Run service
+     * @return
+     */
     public String[][] run() {
-
         List<String> forCode = forCode(repository.getFileNames());
-
         System.out.println("Список файлов/директорий на кодирование:");
         forCode.forEach(System.out::println);
 
         List<String> forCopy = forCopy(repository.getFileNames(), forCode);
-
         System.out.println("Список файлов/директорий на копирование:");
         forCopy.forEach(System.out::println);
 
